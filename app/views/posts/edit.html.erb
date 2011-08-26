@@ -1,0 +1,21 @@
+<div class="page">
+  <div class="menu">
+     <ul>
+        <li> <b><%= link_to 'Home', root_path %></b> </li>
+        <li> <b><%= link_to "View all news", posts_path %></b>  </li>
+        <li> <%#if can? :create, Post %>
+            <b><%= link_to 'New Post', new_post_path %></b>
+        <%# end %> </li>
+     </ul>
+     <br/>
+  </div>
+
+
+<div class="post_big">
+    <h3 class="title"> Add new post </h3>
+    <div class="formp">
+
+    <%= render 'form' %>
+    </div>
+</div>
+</div>

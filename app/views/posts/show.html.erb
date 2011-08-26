@@ -1,0 +1,40 @@
+<div class="page">
+   <div class="menu">
+     <ul>
+        <li> <b><%= link_to 'Home', root_path %></b> </li>
+        <li> <b><%= link_to "View all news", posts_path %></b>  </li>
+        <li> <% if current_user %>
+            <b><%= link_to 'New Post', new_post_path %></b>
+        <% end %> </li>
+     </ul>
+     <br/>
+   </div>
+
+  <div class="post_big">
+    <h3 class="title"> <%= @post.title.capitalize %> </h3>
+    <div class="info_image_big"> <%= image_tag @post.picture.url(:medium) %> </div>
+    <div class="post_info">
+      <div class="info_content_big">
+        <%= @post.content %>
+      </div>
+    </div>
+
+     <p><strong>This post was tagged with</strong>:
+        <% @post.tags.each do |t| %>
+            <%= link_to t.name.capitalize, tag_path(t) %>
+        <% end %>
+    </p>
+
+  </div>
+
+  <% if current_user %>
+        <div class="links">
+            <%= link_to 'Edit', edit_post_path(@post) %> |
+            <%= link_to 'Destroy', post_path, :confirm => 'Are you sure?', :method => :delete %>
+        </div>
+  <% end %>
+
+<%= render :partial => "comments/comment"%>
+<%= render :partial => "comments/form"%>
+
+</div>

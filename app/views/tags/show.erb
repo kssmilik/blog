@@ -1,0 +1,35 @@
+<div class="page">
+
+    <%# @posts.each do |post| %>
+        <%#= link_to post.title, post_path(post.id) %>
+        <%#= post.content %>
+    <%# end %>
+<%#= will_paginate @posts %>
+
+
+  <div class="menu">
+     <ul>
+        <li> <b><%= link_to 'Home', root_path %></b> </li>
+        <li> <b><%= link_to "View all news", posts_path %></b>  </li>
+        <li> <% if current_user %>
+            <b><%= link_to 'New Post', new_post_path %></b>
+        <% end %> </li>
+     </ul>
+     <br/>
+  </div>
+
+  <h2> Posts tagged with:  <%= @tag.name.capitalize %> </h2>
+   <br/>
+
+
+
+
+        <% if @posts.empty? %>
+            <h2>There is now any posts in your blog yet</h2>
+        <% else %>
+            <%= render :partial => "posts/post", :collection => @posts %>
+        <% end %>
+
+<br/>
+
+</div>

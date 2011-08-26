@@ -1,0 +1,11 @@
+<div class="post">
+    <div class="info_image"><%= image_tag post.picture.url(:thumb)%></div>
+    <div class="post_info">
+      <p class="info"> <b> Title:</b>  <%= post.title.capitalize %> </p>
+
+      <div class="info_content">
+        <%= post.content[0..200] %>
+        <span>...&nbsp; <%= link_to 'read more', post %></span>
+      </div>
+    </div>
+</div>

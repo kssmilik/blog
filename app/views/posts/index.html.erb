@@ -1,0 +1,30 @@
+<div class="page">
+
+  <div class="menu">
+     <ul>
+        <li> <b><%= link_to 'Home', root_path %></b> </li>
+        <li> <b><%= link_to "View all news", posts_path %></b>  </li>
+        <li> <% if current_user %>
+            <b><%= link_to 'New Post', new_post_path %></b>
+        <% end %> </li>
+     </ul>
+     <br/>
+  </div>
+  <div class="tag_cloud">
+    <% @tags.each do |t| %>
+     <b>   <%= link_to t.name.capitalize, tag_path(t) %> </b>
+    <% end %>
+  </div>
+
+
+        <% if @posts.empty? %>
+            <h2>There is now any posts in your blog yet</h2>
+        <% else %>
+            <%= render :partial => "post", :collection => @posts %>
+        <% end %>
+
+<br/>
+<%= will_paginate @posts %>
+
+
+</div>

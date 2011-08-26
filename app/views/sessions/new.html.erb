@@ -1,0 +1,29 @@
+<div class="page">
+    <div class="menu">
+     <ul>
+        <li> <b><%= link_to 'Home', root_path %></b> </li>
+        <li> <b><%= link_to "View all news", posts_path %></b>  </li>
+        <li> <% if current_user %>
+            <b><%= link_to 'New Post', new_post_path %></b>
+        <% end %> </li>
+     </ul>
+     <br/>
+  </div>
+
+  <div class="login">
+<h2 class="title">Sign in</h2>
+  
+<%= form_tag sessions_path do %>  
+  <p>  
+    <%= label_tag :email %><br />  
+    <%= text_field_tag :email, params[:email] %>  
+  </p>  
+  <p>  
+    <%= label_tag :password %><br />  
+    <%= password_field_tag :password %>  
+  </p>  
+  <p class="button"><%= submit_tag %></p>  
+<% end %>
+
+</div>
+</div>
